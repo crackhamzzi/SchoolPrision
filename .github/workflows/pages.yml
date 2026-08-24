@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Validate static site
 
 on:
   push:
@@ -8,11 +8,9 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: validate-static-site
   cancel-in-progress: true
 
 jobs:
@@ -29,80 +27,16 @@ jobs:
           node-version: 22.13.0
           cache: npm
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
       - name: Install dependencies
         run: npm install
 
-      - name: Build site
-        run: node ./node_modules/vinext/dist/cli.js build
+      - name: Test site
+        run: npm test
 
-      - name: Inspect build output
+      - name: Verify static output
         run: |
-          echo "=== HTML files ==="
-          find dist/client -type f -name "*.html" -print
-
-          echo "=== _next directories ==="
-          find dist -type d -name "_next" -print || true
-
-          echo "=== CSS files ==="
-          find dist -type f -name "*.css" -print | head -100 || true
-
-          echo "=== JS chunks ==="
-          find dist -type f -name "*.js" -print | head -100 || true
-
-          echo "=== client tree ==="
-          find dist/client -maxdepth 5 -type f -print | sort | head -200
-
-      - name: Normalize GitHub Pages assets
-        run: |
-          if [ -d "dist/client/_next" ]; then
-            echo "_next already in correct location"
-
-          elif [ -d "dist/client/SchoolPrision/_next" ]; then
-            echo "Moving dist/client/SchoolPrision/_next -> dist/client/_next"
-
-            mkdir -p dist/client/_next
-            cp -a dist/client/SchoolPrision/_next/. dist/client/_next/
-
-          else
-            echo "ERROR: Could not find generated _next directory"
-            find dist -type d -name "_next" -print || true
-            exit 1
-          fi
-
-      - name: Verify Pages output
-        run: |
-          echo "=== index.html ==="
           test -f dist/client/index.html
-
-          echo "=== _next/static ==="
-          test -d dist/client/_next/static
-
-          echo "=== final asset paths ==="
-          grep -oE '(src|href)="[^"]+"' dist/client/index.html | head -50 || true
-
-          echo "=== final _next files ==="
-          find dist/client/_next -type f | head -100
-
-      - name: Disable Jekyll
-        run: touch dist/client/.nojekyll
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: dist/client
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Deploy to Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          test -d dist/client/SchoolPrision/_next/static
+          test -d dist/client/characters
+          test -d dist/client/pv
+          ! grep -qE '(src|href)="/(pv|characters)/' dist/client/index.html

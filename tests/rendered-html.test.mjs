@@ -156,6 +156,23 @@ test("ships four Seoul2043-style scene images and an enlarge viewer for every ch
   }
 });
 
+test("keeps public assets inside the GitHub Pages project path", async () => {
+  const [page, sequence, css, response] = await Promise.all([
+    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/pv-sequence.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+    render(),
+  ]);
+  const html = await response.text();
+
+  assert.doesNotMatch(page, /["']\/(?:pv|characters)\//);
+  assert.doesNotMatch(sequence, /["']\/(?:pv|characters)\//);
+  assert.match(page, /["']\.\/(?:pv|characters)\//);
+  assert.match(sequence, /["']\.\/pv\//);
+  assert.match(css, /url\("\.\.\/\.\.\/\.\.\/title-logo\.png"\)/);
+  assert.doesNotMatch(html, /(?:src|href)="\/(?:pv|characters)\//);
+});
+
 test("ships the supplied face-focused character portraits", async () => {
   const [page, response] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
