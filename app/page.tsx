@@ -31,7 +31,7 @@ type CharacterRelationship = {
 };
 
 const nav: Array<[string, Exclude<TabId, "home">]> = [
-  ["사건", "case"],
+  ["시스템", "case"],
   ["인물", "people"],
 ];
 
@@ -67,7 +67,7 @@ const cast: readonly CastMember[] = [
   { name: "강태호", role: "원치 않는 무력", tone: "gray", line: "조폭인 부친이 진동욱과 얽혀 억지로 무리에 속했다. 위압과 폭력을 쓰기도 하지만 일진짓과 약자·여학생 괴롭힘을 혐오하며 소현은 건드리지 않는다.", quote: "꺼져라.", trait: "조폭 아들 · 과묵함 · 오토바이", standing: "학폭 카르텔 무력 1위", relation: "가담을 혐오하지만 이탈하지 못함", portrait: { src: "./characters/kang-taeho.webp", position: "80% 5%", detailPosition: "80% 0%", zoom: "360%" } },
   { name: "최유리", role: "불안한 동조자", tone: "gray", line: "교우관계와 소문을 잘 기억하지만 표적이 되는 것이 두려워 강자에게 동조한다. 죄책감을 느끼면서도 안전을 위해 진실을 잘라 말하거나 타인을 배신할 수 있다.", quote: "나까지 찍히면… 어떡해.", trait: "ESFJ · 6w7 · so/sp", standing: "2학년 3반 · 부분적 목격자", relation: "죄책감과 자기보호 사이의 동요", portrait: { src: "./characters/choi-yuri.webp", position: "50% 28%", detailPosition: "50% 8%", zoom: "285%" } },
   { name: "이도현", role: "학생회장", tone: "red", line: "경찰청장 아들이자 학생회장. 진희주와 결탁해 학생회 권한으로 학생들을 압박하며 소현을 자기 소유처럼 여기고 거절당할수록 통제를 강화한다.", quote: "학생회가 정한 질서에는 이유가 있어.", trait: "ESTJ · 3w2 · so/sp", standing: "학생회장 · 경찰청장 아들", relation: "체면과 소유욕에 기반한 집착", portrait: { src: "./characters/lee-dohyeon.png", position: "50% 14%", detailPosition: "50% 0%", zoom: "320%" } },
-  { name: "안수진", role: "관찰자", tone: "white", line: "일진과 어울리지 않는 대기업 회장 딸이자 최상위권 천재. 소현을 돕지 않고 구원자가 나타나는 비극을 구경하며, 자신을 논리로 꺾은 상대에게 복종하고 집착하길 갈망한다.", quote: "더 보여주시겠어요? 어디까지 옳을 수 있는지.", trait: "ENFJ · 2w1 · so/sx", standing: "대기업 회장 딸 · 최상위권", relation: "지적 호기심이 집착으로 변할 가능성", portrait: { src: "./characters/ahn-sujin.webp", position: "54% 31%", detailPosition: "54% 7%", zoom: "280%" } },
+  { name: "안수진", role: "관찰자", tone: "white", line: "일진 무리를 모두 한심하게 보는 대기업 회장 딸이자 최상위권 천재. 소현을 돕지 않고 구원자가 나타나는 비극을 구경하며, 자신을 논리로 꺾은 상대에게 복종하고 집착하길 갈망한다.", quote: "더 보여주시겠어요? 어디까지 옳을 수 있는지.", trait: "ENFJ · 2w1 · so/sx", standing: "대기업 회장 딸 · 최상위권", relation: "지적 호기심이 집착으로 변할 가능성", portrait: { src: "./characters/ahn-sujin.webp", position: "54% 31%", detailPosition: "54% 7%", zoom: "280%" } },
   { name: "박성훈", role: "세 번 반려된 담임", tone: "gray", line: "소현을 지키기 위해 학폭위 자료를 세 차례 제출했지만 모두 반려되고 보복만 심해지는 것을 보았다. 체념했으나 카르텔을 끝내고 싶은 의지는 남아 있다.", quote: "하아… 그만둬라. 제발, 너까지는.", trait: "2학년 3반 담임 · 안경 없음", standing: "체념한 내부자", relation: "만류 뒤에 남은 죄책감과 의지", portrait: { src: "./characters/park-seonghoon.webp", position: "56% 31%", detailPosition: "56% 10%", zoom: "275%" } },
   { name: "서동환", role: "학교의 문지기", tone: "red", line: "진동욱의 권력에 복종하는 부패한 교장. 학교의 명예와 질서를 명분으로 폭력을 은폐하고 학생과 교사에게는 위압적이지만 권력자 앞에서는 비굴하다.", quote: "학교의 명예를 먼저 생각해야 합니다.", trait: "크랙고등학교 교장", standing: "진동욱 카르텔의 교내 하수인", relation: "가식적인 압박과 책임 회피", portrait: { src: "./characters/seo-donghwan.webp", position: "44% 13%", detailPosition: "44% 0%", zoom: "300%" } },
   { name: "진동욱", role: "국회의원", tone: "red", line: "진희주의 친부인 현역 국회의원. 딸보다 자신의 정치 생명을 먼저 지키며 권력·인맥·돈을 도구로 삼고, 필요하면 가족과 측근도 버린다.", quote: "학생, 선을 넘으면 서로 피곤해집니다.", trait: "현역 국회의원 · 진희주 친부", standing: "권력과 은폐의 정점", relation: "회유 가능한 위험요소로 판단", portrait: { src: "./characters/jin-dongwook.webp", position: "50% 17%", detailPosition: "50% 18%", zoom: "310%" } },
@@ -98,10 +98,13 @@ const characterRelationships: CharacterRelationship[] = [
   { from: "진동욱", to: "진희주", label: "권력 · 조건부 보호", detail: "딸보다 정치 생명을 우선한다. 진희주를 보호하지만 자신에게 위험해지는 순간에는 언제든 버릴 수 있다.", tone: "power", direction: "one-way", labelShiftX: 74, labelShiftY: -8 },
   { from: "진동욱", to: "서동환", label: "외압 · 복종", detail: "진동욱의 외압은 서동환을 거쳐 학교의 명예, 교칙, 행정 절차라는 얼굴로 교내에 집행된다.", tone: "power", direction: "one-way", labelShiftX: -20, labelShiftY: -18 },
   { from: "진동욱", to: "강태호", label: "부친 연결 · 강제 편입", detail: "강태호는 부친과 진동욱의 이해관계 때문에 진희주 무리에 묶여 있으며 쉽게 이탈하지 못한다.", tone: "power", direction: "one-way", mapLabel: ["부친 연결", "강제 편입"], labelShiftX: 54, labelShiftY: -12 },
-  { from: "진희주", to: "서은정", label: "권력과 지능의 공생", detail: "진희주는 빽과 서열을, 서은정은 궤변과 여론 조작을 제공하며 서로의 폭력을 효율적으로 만든다.", tone: "complicity", direction: "mutual", labelShiftX: -92, labelShiftY: -52 },
+  { from: "진희주", to: "서은정", label: "권력과 지능의 공생", detail: "진희주는 빽과 서열을, 서은정은 궤변과 여론 조작을 제공하며 서로의 폭력을 효율적으로 만든다.", tone: "complicity", direction: "mutual", labelShiftX: 0, labelShiftY: -108 },
   { from: "윤서아", to: "진희주", label: "부추김 · 체스말", detail: "윤서아는 진희주가 군림할 판을 짰다고 자만하며, 진희주의 권력을 자신의 설계가 낳은 결과처럼 여긴다.", tone: "complicity", direction: "one-way", labelShiftX: -18, labelShiftY: -68 },
-  { from: "진희주", to: "강태호", label: "명령 · 불쾌한 복종", detail: "진희주는 강태호의 무력을 자기 권력으로 취급하지만, 강태호는 가담 자체와 약자 괴롭힘을 혐오한다.", tone: "complicity", direction: "one-way", labelShiftX: 96, labelShiftY: -44 },
-  { from: "진희주", to: "이도현", label: "학생회 결탁", detail: "두 사람은 서로의 집안과 교내 권한을 이용해 폭력과 통제를 공식적인 질서처럼 포장한다.", tone: "complicity", direction: "mutual", labelShiftX: 34, labelShiftY: 4 },
+  { from: "진희주", to: "강태호", label: "명령 · 불쾌한 복종", detail: "진희주는 강태호의 무력을 자기 권력으로 취급하지만, 강태호는 가담 자체와 약자 괴롭힘을 혐오한다.", tone: "complicity", direction: "one-way", labelShiftX: 96, labelShiftY: -74 },
+  { from: "진희주", to: "이도현", label: "학생회 결탁", detail: "두 사람은 서로의 집안과 교내 권한을 이용해 폭력과 통제를 공식적인 질서처럼 포장한다.", tone: "complicity", direction: "mutual", labelShiftX: 34, labelShiftY: -58 },
+  { from: "서은정", to: "이소현", label: "지배 · 공개적 모욕", detail: "서은정은 궤변과 가스라이팅과 여론몰이로 소현을 고립시키고 공개적인 모욕을 폭력의 도구로 삼는다.", tone: "hostile", direction: "one-way", labelShiftX: 92, labelShiftY: 2 },
+  { from: "윤서아", to: "이소현", label: "지배 · 공개적 모욕", detail: "윤서아는 소현의 심리를 파고들어 반응을 유도하고 공개적인 모욕으로 정신적 지배를 시도한다.", tone: "hostile", direction: "one-way", labelShiftX: -92, labelShiftY: 2 },
+  { from: "윤서아", to: "안수진", label: "까탈스러운 존재", detail: "안수진은 일진 무리를 모두 한심하게 여기며, 윤서아는 자기 심리전과 설계에 쉽게 휘둘리지 않는 안수진을 까탈스러운 존재로 본다.", tone: "complicity", direction: "one-way", labelShiftX: 18, labelShiftY: -36 },
   { from: "박성훈", to: "서동환", label: "반려된 저항", detail: "박성훈이 제출한 학폭위 자료는 서동환의 학교 행정과 외압 앞에서 세 차례 반려되었다.", tone: "hostile", direction: "one-way", labelShiftX: -14, labelShiftY: 8 },
 ];
 

@@ -43,7 +43,7 @@ test("ships the archive template with the full-screen prologue PV", async () => 
     readFile(new URL("../app/pv-sequence.ts", import.meta.url), "utf8"),
   ]);
 
-  for (const tab of ["사건", "인물"]) {
+  for (const tab of ["시스템", "인물"]) {
     assert.match(page, new RegExp(`\\["${tab}"`));
   }
   assert.doesNotMatch(page, /\["학급의회", "council"\]/);
@@ -130,8 +130,13 @@ test("ships the complete core cast", async () => {
   assert.match(page, /name: "안수진", role: "관찰자"/);
   assert.match(page, /name: "이도현", role: "학생회장"/);
   assert.match(page, /name: "진동욱", role: "국회의원"/);
-  assert.match(page, /label: "권력과 지능의 공생"[\s\S]*?labelShiftX: -92, labelShiftY: -52/);
-  assert.match(page, /label: "명령 · 불쾌한 복종"[\s\S]*?labelShiftX: 96, labelShiftY: -44/);
+  assert.match(page, /label: "권력과 지능의 공생"[\s\S]*?labelShiftX: 0, labelShiftY: -108/);
+  assert.match(page, /label: "명령 · 불쾌한 복종"[\s\S]*?labelShiftX: 96, labelShiftY: -74/);
+  assert.match(page, /label: "학생회 결탁"[\s\S]*?labelShiftX: 34, labelShiftY: -58/);
+  assert.match(page, /from: "서은정", to: "이소현", label: "지배 · 공개적 모욕"/);
+  assert.match(page, /from: "윤서아", to: "이소현", label: "지배 · 공개적 모욕"/);
+  assert.match(page, /from: "윤서아", to: "안수진", label: "까탈스러운 존재"/);
+  assert.match(page, /일진 무리를 모두 한심하게 보는/);
   assert.match(css, /\.character-view-tabs button b[^}]*font-size:\s*24px/);
   assert.match(css, /\.character-dossier article > span[^}]*font:\s*800 18px/);
   assert.doesNotMatch(page, /cast\.slice\(/);
