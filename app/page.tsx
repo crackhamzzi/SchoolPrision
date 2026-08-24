@@ -155,8 +155,11 @@ const relationshipEdgeLabelStyle = ({ from, to, labelShiftX = 0, labelShiftY = -
   } as React.CSSProperties;
 };
 
+const publicAssetUrl = (source: string) =>
+  `${import.meta.env.BASE_URL}${source.replace(/^\.?\//, "")}`;
+
 const portraitStyle = (person: CastMember): React.CSSProperties | undefined => person.portrait ? ({
-  "--portrait-image": `url("${person.portrait.src}")`,
+  "--portrait-image": `url("${publicAssetUrl(person.portrait.src)}")`,
   "--portrait-position": person.portrait.position,
   "--portrait-detail-position": person.portrait.detailPosition,
   "--portrait-zoom": person.portrait.zoom,

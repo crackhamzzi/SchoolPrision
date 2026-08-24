@@ -171,6 +171,8 @@ test("keeps public assets inside the GitHub Pages project path", async () => {
   assert.match(sequence, /["']\.\/pv\//);
   assert.match(css, /url\("\.\.\/\.\.\/\.\.\/title-logo\.png"\)/);
   assert.doesNotMatch(html, /(?:src|href)="\/(?:pv|characters)\//);
+  assert.match(html, /--portrait-image:url\(&quot;\/SchoolPrision\/characters\/lee-sohyeon\.webp&quot;\)/);
+  assert.doesNotMatch(html, /--portrait-image:url\(&quot;\.\/characters\//);
 });
 
 test("ships the supplied face-focused character portraits", async () => {
