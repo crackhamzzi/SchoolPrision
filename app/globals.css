@@ -256,7 +256,7 @@ button { font: inherit; }
 
 .character-view-tabs { display: grid; width: min(100%,520px); grid-template-columns: repeat(2,minmax(0,260px)); margin: 0 auto 36px; border-left: 1px solid rgba(0,0,0,.25); }
 .character-view-tabs button { display: grid; min-height: 72px; place-items: center; padding: 14px 22px; border: 0; border-top: 1px solid rgba(0,0,0,.25); border-right: 1px solid rgba(0,0,0,.25); border-bottom: 1px solid rgba(0,0,0,.25); background: rgba(255,255,255,.08); color: #5c5b57; cursor: pointer; text-align: center; transition: color .2s,background .2s; }
-.character-view-tabs button b { font-size: 22px; font-weight: 680; letter-spacing: -.035em; }
+.character-view-tabs button b { font-size: 24px; font-weight: 750; letter-spacing: -.035em; }
 .character-view-tabs button.active { background: #151515; color: #f0eee8; }
 .character-browser { display: grid; grid-template-columns: minmax(250px,290px) minmax(0,1fr); gap: clamp(24px,2.4vw,38px); padding: clamp(20px,2.3vw,34px); border: 1px solid rgba(0,0,0,.27); background: #d2cfc8; }
 .character-roster { display: grid; grid-template-columns: 1fr; align-content: start; align-self: start; overflow: hidden; border: 1px solid rgba(0,0,0,.25); background: #d8d6d0; }
@@ -283,7 +283,7 @@ button { font: inherit; }
 .dossier-hero h3 { margin: 16px 0 8px; font-size: clamp(44px,5vw,72px); font-weight: 350; line-height: .86; letter-spacing: -.07em; }
 .dossier-hero p { margin: 0; color: #6f6e69; font-size: 18px; }
 .dossier-hero .dossier-hero-quote { max-width: 620px; margin: 24px 0 0; color: #33322f; font-size: clamp(19px,1.8vw,27px); font-weight: 410; line-height: 1.45; letter-spacing: -.035em; word-break: keep-all; }
-.character-dossier article > span { color: var(--profile); font: 750 11px/1 ui-monospace,Consolas,monospace; letter-spacing: .12em; }
+.character-dossier article > span { color: var(--profile); font: 800 18px/1.2 "Pretendard","Noto Sans KR",sans-serif; letter-spacing: -.025em; }
 .character-dossier article { position: relative; z-index: 1; padding: 36px 0; }
 .character-dossier article p { max-width: 820px; margin: 14px 0 0; color: #565550; font-size: 17px; line-height: 1.82; }
 .dossier-next { position: relative; z-index: 1; display: flex; width: 100%; align-items: center; justify-content: space-between; padding: 18px 0; border: 0; border-top: 1px solid rgba(0,0,0,.24); background: transparent; color: #33322f; cursor: pointer; font-size: 15px; text-align: left; }

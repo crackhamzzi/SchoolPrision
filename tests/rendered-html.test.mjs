@@ -109,7 +109,10 @@ test("ships the archive template with the full-screen prologue PV", async () => 
 });
 
 test("ships the complete core cast", async () => {
-  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const [page, css] = await Promise.all([
+    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
 
   for (const name of [
     "이소현", "김도윤", "진희주", "서은정", "윤서아", "강태호", "최유리",
@@ -124,6 +127,13 @@ test("ships the complete core cast", async () => {
   assert.doesNotMatch(page, /className="dossier-head"|IDENTITY FILE<\/span>/);
   assert.match(page, /<p>\{activePersonData\.role\}<\/p><blockquote className="dossier-hero-quote">/);
   assert.match(page, /"진동욱": \{ x: 69, y: 12 \}/);
+  assert.match(page, /name: "안수진", role: "관찰자"/);
+  assert.match(page, /name: "이도현", role: "학생회장"/);
+  assert.match(page, /name: "진동욱", role: "국회의원"/);
+  assert.match(page, /label: "권력과 지능의 공생"[\s\S]*?labelShiftX: -92, labelShiftY: -52/);
+  assert.match(page, /label: "명령 · 불쾌한 복종"[\s\S]*?labelShiftX: 96, labelShiftY: -44/);
+  assert.match(css, /\.character-view-tabs button b[^}]*font-size:\s*24px/);
+  assert.match(css, /\.character-dossier article > span[^}]*font:\s*800 18px/);
   assert.doesNotMatch(page, /cast\.slice\(/);
 });
 
