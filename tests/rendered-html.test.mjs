@@ -25,6 +25,8 @@ test("server-renders the school suspense archive", async () => {
   assert.match(html, /class="surveillance(?:\s|")/);
   assert.match(html, /class="case-strip"/);
   assert.match(html, /선택 → 충돌 → 평판 → 후속 결과/);
+  assert.match(html, /한빛고등학교 2학년 3반/);
+  assert.doesNotMatch(html, /크랙고등학교/);
   assert.match(html, /학교라는 이름의 감옥 진입 화면/);
   assert.match(html, /교내 기록 연결 중/);
   assert.doesNotMatch(html, /COMPLETE EDITION|FICTIONAL STORY ARCHIVE|RELATIONSHIP CHART|SELECTED IDENTITY|ACTIVE RECORD|OBSESSION/);
@@ -49,6 +51,11 @@ test("ships the archive template with the full-screen prologue PV", async () => 
   assert.doesNotMatch(page, /\["학급의회", "council"\]/);
   assert.doesNotMatch(page, /type TabId = [^;]*"council"/);
   assert.match(page, /data-panel="case"[\s\S]*<CouncilDemo \/>/);
+  assert.ok(page.indexOf('className="case-strip"') > page.indexOf('className="council-section"'));
+  assert.match(page, /trait: "한빛고등학교 교장"/);
+  assert.doesNotMatch(page, /크랙고등학교/);
+  assert.match(pv, /한빛고등학교 비공개 기록/);
+  assert.doesNotMatch(pv, /크랙고등학교/);
   assert.doesNotMatch(page, /폭력보다 오래 남는 것은|모두가 외면했다는 기억/);
   for (const mode of ["평판", "학급의회", "물리적 충돌", "관계와 정보"]) {
     assert.match(page, new RegExp(`<h3>${mode}<\\/h3>`));
@@ -127,6 +134,8 @@ test("ships the complete core cast", async () => {
   assert.doesNotMatch(page, /className="dossier-head"|IDENTITY FILE<\/span>/);
   assert.match(page, /<p>\{activePersonData\.role\}<\/p><blockquote className="dossier-hero-quote">/);
   assert.match(page, /"진동욱": \{ x: 69, y: 12 \}/);
+  assert.match(page, /"최유리": \{ x: 12, y: 74 \}/);
+  assert.match(page, /"윤서아": \{ x: 35, y: 88 \}/);
   assert.match(page, /name: "안수진", role: "관찰자"/);
   assert.match(page, /name: "이도현", role: "학생회장"/);
   assert.match(page, /name: "진동욱", role: "국회의원"/);

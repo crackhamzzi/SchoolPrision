@@ -126,7 +126,7 @@ export default function PvExperience({ onCancel, onEnterSite, onComplete }: PvEx
       <div className="prison-pv-vignette" aria-hidden="true" />
 
       <header className="prison-pv-hud" aria-hidden="true">
-        <span>크랙고등학교 비공개 기록</span>
+        <span>한빛고등학교 비공개 기록</span>
         <b>프롤로그</b>
         <span>장면 {index + 1} / {pvBeats.length}</span>
       </header>

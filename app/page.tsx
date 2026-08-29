@@ -69,7 +69,7 @@ const cast: readonly CastMember[] = [
   { name: "이도현", role: "학생회장", tone: "red", line: "경찰청장 아들이자 학생회장. 진희주와 결탁해 학생회 권한으로 학생들을 압박하며 소현을 자기 소유처럼 여기고 거절당할수록 통제를 강화한다.", quote: "학생회가 정한 질서에는 이유가 있어.", trait: "ESTJ · 3w2 · so/sp", standing: "학생회장 · 경찰청장 아들", relation: "체면과 소유욕에 기반한 집착", portrait: { src: "./characters/lee-dohyeon.png", position: "50% 14%", detailPosition: "50% 0%", zoom: "320%" } },
   { name: "안수진", role: "관찰자", tone: "white", line: "일진 무리를 모두 한심하게 보는 대기업 회장 딸이자 최상위권 천재. 소현을 돕지 않고 구원자가 나타나는 비극을 구경하며, 자신을 논리로 꺾은 상대에게 복종하고 집착하길 갈망한다.", quote: "더 보여주시겠어요? 어디까지 옳을 수 있는지.", trait: "ENFJ · 2w1 · so/sx", standing: "대기업 회장 딸 · 최상위권", relation: "지적 호기심이 집착으로 변할 가능성", portrait: { src: "./characters/ahn-sujin.webp", position: "54% 31%", detailPosition: "54% 7%", zoom: "280%" } },
   { name: "박성훈", role: "세 번 반려된 담임", tone: "gray", line: "소현을 지키기 위해 학폭위 자료를 세 차례 제출했지만 모두 반려되고 보복만 심해지는 것을 보았다. 체념했으나 카르텔을 끝내고 싶은 의지는 남아 있다.", quote: "하아… 그만둬라. 제발, 너까지는.", trait: "2학년 3반 담임 · 안경 없음", standing: "체념한 내부자", relation: "만류 뒤에 남은 죄책감과 의지", portrait: { src: "./characters/park-seonghoon.webp", position: "56% 31%", detailPosition: "56% 10%", zoom: "275%" } },
-  { name: "서동환", role: "학교의 문지기", tone: "red", line: "진동욱의 권력에 복종하는 부패한 교장. 학교의 명예와 질서를 명분으로 폭력을 은폐하고 학생과 교사에게는 위압적이지만 권력자 앞에서는 비굴하다.", quote: "학교의 명예를 먼저 생각해야 합니다.", trait: "크랙고등학교 교장", standing: "진동욱 카르텔의 교내 하수인", relation: "가식적인 압박과 책임 회피", portrait: { src: "./characters/seo-donghwan.webp", position: "44% 13%", detailPosition: "44% 0%", zoom: "300%" } },
+  { name: "서동환", role: "학교의 문지기", tone: "red", line: "진동욱의 권력에 복종하는 부패한 교장. 학교의 명예와 질서를 명분으로 폭력을 은폐하고 학생과 교사에게는 위압적이지만 권력자 앞에서는 비굴하다.", quote: "학교의 명예를 먼저 생각해야 합니다.", trait: "한빛고등학교 교장", standing: "진동욱 카르텔의 교내 하수인", relation: "가식적인 압박과 책임 회피", portrait: { src: "./characters/seo-donghwan.webp", position: "44% 13%", detailPosition: "44% 0%", zoom: "300%" } },
   { name: "진동욱", role: "국회의원", tone: "red", line: "진희주의 친부인 현역 국회의원. 딸보다 자신의 정치 생명을 먼저 지키며 권력·인맥·돈을 도구로 삼고, 필요하면 가족과 측근도 버린다.", quote: "학생, 선을 넘으면 서로 피곤해집니다.", trait: "현역 국회의원 · 진희주 친부", standing: "권력과 은폐의 정점", relation: "회유 가능한 위험요소로 판단", portrait: { src: "./characters/jin-dongwook.webp", position: "50% 17%", detailPosition: "50% 18%", zoom: "310%" } },
 ];
 
@@ -116,9 +116,9 @@ const relationshipPositions: Record<string, { x: number; y: number }> = {
   "안수진": { x: 83, y: 30 },
   "김도윤": { x: 11, y: 53 },
   "이도현": { x: 89, y: 53 },
-  "최유리": { x: 17, y: 76 },
+  "최유리": { x: 12, y: 74 },
   "강태호": { x: 83, y: 76 },
-  "윤서아": { x: 30, y: 84 },
+  "윤서아": { x: 35, y: 88 },
   "진희주": { x: 50, y: 86 },
   "서은정": { x: 70, y: 84 },
 };
@@ -301,14 +301,6 @@ export default function Home() {
         </section>
 
         <div className="tab-panel case-panel" data-panel="case">
-          <section className="case-strip" aria-label="사건 개요">
-            <p>교실의 침묵은 공개토론과 충돌을 거쳐 학교 밖 권력으로 번진다</p>
-            <dl>
-              <div><dt>장소</dt><dd>크랙고등학교 2학년 3반</dd></div>
-              <div><dt>핵심 위협</dt><dd>학폭 카르텔 / 부패 권력 / 침묵</dd></div>
-              <div><dt>사건 구조</dt><dd>선택 → 충돌 → 평판 → 후속 결과</dd></div>
-            </dl>
-          </section>
           <section className="incident-system section-shell" aria-labelledby="incident-title">
             <div className="incident-heading">
               <h2 id="incident-title">한 사건은 끝나지 않고<br /><em>다음 충돌의 이유가 된다</em></h2>
@@ -333,6 +325,14 @@ export default function Home() {
           </section>
           <section className="council-section" aria-labelledby="council-title">
             <div className="section-shell council-layout"><div className="council-copy"><h2 id="council-title">학급의회</h2><p className="council-lede">학생들 앞에서 즉시 시작되는 공개 여론전. 공격자는 압박하고 방어자는 대응한 뒤 공격권을 이어받는다.</p><ul><li>개인전과 팀전 모두 가능</li><li>논리와 증거와 궤변과 권력 과시를 모두 판정</li><li>공포로 얻은 지지도 역시 실제 여론으로 작동</li><li>같은 수법도 상대와 청중에 따라 결과가 달라짐</li></ul></div><CouncilDemo /></div>
+          </section>
+          <section className="case-strip" aria-label="사건 개요">
+            <p>교실의 침묵은 공개토론과 충돌을 거쳐 학교 밖 권력으로 번진다</p>
+            <dl>
+              <div><dt>장소</dt><dd>한빛고등학교 2학년 3반</dd></div>
+              <div><dt>핵심 위협</dt><dd>학폭 카르텔 / 부패 권력 / 침묵</dd></div>
+              <div><dt>사건 구조</dt><dd>선택 → 충돌 → 평판 → 후속 결과</dd></div>
+            </dl>
           </section>
         </div>
 
