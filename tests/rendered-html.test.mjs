@@ -54,7 +54,8 @@ test("ships the archive template with the full-screen prologue PV", async () => 
   assert.ok(page.indexOf('className="case-strip"') > page.indexOf('className="council-section"'));
   assert.match(page, /trait: "한빛고등학교 교장"/);
   assert.doesNotMatch(page, /크랙고등학교/);
-  assert.match(pv, /한빛고등학교 비공개 기록/);
+  assert.doesNotMatch(pv, /prison-pv-hud|한빛고등학교 비공개 기록|장면 \{index \+ 1\}/);
+  assert.match(pv, /className="prison-pv-controls"/);
   assert.doesNotMatch(pv, /크랙고등학교/);
   assert.doesNotMatch(page, /폭력보다 오래 남는 것은|모두가 외면했다는 기억/);
   for (const mode of ["평판", "학급의회", "물리적 충돌", "관계와 정보"]) {

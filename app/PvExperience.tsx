@@ -125,12 +125,6 @@ export default function PvExperience({ onCancel, onEnterSite, onComplete }: PvEx
       <div className="prison-pv-scanlines" aria-hidden="true" />
       <div className="prison-pv-vignette" aria-hidden="true" />
 
-      <header className="prison-pv-hud" aria-hidden="true">
-        <span>한빛고등학교 비공개 기록</span>
-        <b>프롤로그</b>
-        <span>장면 {index + 1} / {pvBeats.length}</span>
-      </header>
-
       <div className="prison-pv-controls">
         <button type="button" onClick={() => move(-1)} disabled={index === 0} aria-label="이전 장면">이전</button>
         <button type="button" onClick={() => setPaused((current) => !current)} aria-label={paused ? "PV 재생" : "PV 일시정지"}>{paused ? "재생" : "일시정지"}</button>
