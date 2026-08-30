@@ -245,6 +245,7 @@ test("renders the interactive class council simulation", async () => {
 test("keeps the responsive and reduced-motion safeguards", async () => {
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 
+  assert.match(css, /:root\s*\{[^}]*color-scheme:\s*only light/);
   assert.match(css, /@media \(max-width:\s*860px\)/);
   assert.match(css, /@media \(prefers-reduced-motion:\s*reduce\)/);
   assert.match(css, /\.prison-pv-beat-uncle::before/);
