@@ -91,7 +91,7 @@ const characterGallery: Record<string, string[]> = {
 const characterRelationships: CharacterRelationship[] = [
   { from: "김도윤", to: "이소현", label: "죄책감 · 침묵", detail: "과거 소현의 피해를 신고했다가 보복당한 뒤, 다시 표적이 될 공포 때문에 진실을 알고도 침묵한다.", tone: "witness", direction: "one-way", labelShiftY: -30 },
   { from: "진희주", to: "이소현", label: "지배 · 공개적 폭력", detail: "소현을 굴복시켜 자신의 서열과 아버지의 권력이 건재하다는 것을 교실 전체에 증명하려 한다.", tone: "hostile", direction: "one-way", labelShiftX: -52, labelShiftY: -28 },
-  { from: "최유리", to: "이소현", label: "동조 · 죄책감", detail: "피해를 알면서도 자신이 표적이 될까 두려워 진실을 잘라 말한다. 외면할수록 죄책감은 깊어진다.", tone: "witness", direction: "one-way", labelShiftX: 28, labelShiftY: 20 },
+  { from: "최유리", to: "이소현", label: "동조 · 죄책감", detail: "피해를 알면서도 자신이 표적이 될까 두려워 진실을 잘라 말한다. 외면할수록 죄책감은 깊어진다.", tone: "witness", direction: "one-way", labelShiftX: 0, labelShiftY: -24 },
   { from: "이도현", to: "이소현", label: "소유 · 학생회 통제", detail: "소현의 거절을 관계의 끝이 아니라 자신의 권위에 대한 모욕으로 받아들이며 학생회 권한까지 동원한다.", tone: "obsession", direction: "one-way", labelShiftY: -30 },
   { from: "안수진", to: "이소현", label: "관찰 · 비극 소비", detail: "소현을 돕지 않은 채 그녀를 구할 누군가가 등장하는 비극적 구도를 가장 가까이서 관찰한다.", tone: "obsession", direction: "one-way", labelShiftX: 25, labelShiftY: -18 },
   { from: "박성훈", to: "이소현", label: "죄책감 · 보호 의지", detail: "세 차례 반려된 신고 뒤 체념했지만, 소현을 지키지 못했다는 죄책감과 카르텔을 끝내려는 의지는 남아 있다.", tone: "support", direction: "one-way", labelShiftX: -25, labelShiftY: -18 },

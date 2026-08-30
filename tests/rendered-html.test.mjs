@@ -144,6 +144,7 @@ test("ships the complete core cast", async () => {
   assert.match(page, /label: "학생회 결탁"[\s\S]*?labelShiftX: 34, labelShiftY: -58/);
   assert.match(page, /from: "서은정", to: "이소현", label: "지배 · 공개적 모욕"/);
   assert.match(page, /from: "윤서아", to: "이소현", label: "지배 · 공개적 모욕"/);
+  assert.match(page, /from: "최유리", to: "이소현", label: "동조 · 죄책감"[\s\S]*?labelShiftX: 0, labelShiftY: -24/);
   assert.match(page, /from: "윤서아", to: "안수진", label: "까탈스러운 존재"/);
   assert.match(page, /일진 무리를 모두 한심하게 보는/);
   assert.match(css, /\.character-view-tabs button b[^}]*font-size:\s*24px/);
