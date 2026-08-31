@@ -174,7 +174,8 @@ test("ships four Seoul2043-style scene images and an enlarge viewer for every ch
 
   for (const slug of slugs) {
     for (let index = 1; index <= 4; index += 1) {
-      const filename = `${slug}-scene-${String(index).padStart(2, "0")}.webp`;
+      const extension = slug === "lee-sohyeon" && index === 2 ? "png" : "webp";
+      const filename = `${slug}-scene-${String(index).padStart(2, "0")}.${extension}`;
       assert.match(page, new RegExp(filename.replaceAll(".", "\\.")));
       await access(new URL(`../public/characters/${filename}`, import.meta.url));
       await access(new URL(`../dist/client/characters/${filename}`, import.meta.url));
@@ -197,7 +198,7 @@ test("keeps public assets inside the GitHub Pages project path", async () => {
   assert.match(sequence, /["']\.\/pv\//);
   assert.match(css, /url\("\.\.\/\.\.\/\.\.\/title-logo\.png"\)/);
   assert.doesNotMatch(html, /(?:src|href)="\/(?:pv|characters)\//);
-  assert.match(html, /--portrait-image:url\(&quot;\/SchoolPrision\/characters\/lee-sohyeon\.webp&quot;\)/);
+  assert.match(html, /--portrait-image:url\(&quot;\/SchoolPrision\/characters\/lee-sohyeon\.png&quot;\)/);
   assert.doesNotMatch(html, /--portrait-image:url\(&quot;\.\/characters\//);
 });
 
@@ -208,7 +209,7 @@ test("ships the supplied face-focused character portraits", async () => {
   ]);
   const html = await response.text();
   const portraits = [
-    "lee-sohyeon.webp",
+    "lee-sohyeon.png",
     "kim-doyoon.webp", "kang-taeho.webp", "park-seonghoon.webp", "seo-donghwan.webp",
     "seo-eunjeong.webp", "ahn-sujin.webp", "yoon-seoa.webp", "lee-dohyeon.png",
     "jin-dongwook.webp", "jin-heeju.webp", "choi-yuri.webp",
@@ -217,7 +218,7 @@ test("ships the supplied face-focused character portraits", async () => {
   assert.match(html, /roster-mark has-portrait/);
   assert.match(page, /--portrait-position/);
   assert.match(page, /--portrait-detail-position/);
-  assert.match(page, /lee-sohyeon\.webp", position: "59% 13%", detailPosition: "59% 6%", zoom: "250%"/);
+  assert.match(page, /lee-sohyeon\.png", position: "50% 20%", detailPosition: "50% 14%", zoom: "320%"/);
   assert.match(page, /lee-dohyeon\.png", position: "50% 14%", detailPosition: "50% 0%"/);
   assert.match(page, /jin-dongwook\.webp", position: "50% 17%", detailPosition: "50% 18%"/);
   for (const portrait of portraits) {
