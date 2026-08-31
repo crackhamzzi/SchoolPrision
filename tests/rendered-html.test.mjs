@@ -198,7 +198,7 @@ test("keeps public assets inside the GitHub Pages project path", async () => {
   assert.match(sequence, /["']\.\/pv\//);
   assert.match(css, /url\("\.\.\/\.\.\/\.\.\/title-logo\.png"\)/);
   assert.doesNotMatch(html, /(?:src|href)="\/(?:pv|characters)\//);
-  assert.match(html, /--portrait-image:url\(&quot;\/SchoolPrision\/characters\/lee-sohyeon\.png&quot;\)/);
+  assert.match(html, /--portrait-image:url\(&quot;\/SchoolPrision\/characters\/lee-sohyeon\.png\?v=7513771c15fd&quot;\)/);
   assert.doesNotMatch(html, /--portrait-image:url\(&quot;\.\/characters\//);
 });
 
@@ -218,7 +218,7 @@ test("ships the supplied face-focused character portraits", async () => {
   assert.match(html, /roster-mark has-portrait/);
   assert.match(page, /--portrait-position/);
   assert.match(page, /--portrait-detail-position/);
-  assert.match(page, /lee-sohyeon\.png", position: "50% 20%", detailPosition: "50% 14%", zoom: "320%"/);
+  assert.match(page, /lee-sohyeon\.png\?v=7513771c15fd", position: "50% 20%", detailPosition: "50% 14%", zoom: "320%"/);
   assert.match(page, /lee-dohyeon\.png", position: "50% 14%", detailPosition: "50% 0%"/);
   assert.match(page, /jin-dongwook\.webp", position: "50% 17%", detailPosition: "50% 18%"/);
   for (const portrait of portraits) {
