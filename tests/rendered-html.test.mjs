@@ -198,7 +198,7 @@ test("keeps public assets inside the GitHub Pages project path", async () => {
   assert.match(sequence, /["']\.\/pv\//);
   assert.match(css, /url\("\.\.\/\.\.\/\.\.\/title-logo\.png"\)/);
   assert.doesNotMatch(html, /(?:src|href)="\/(?:pv|characters)\//);
-  assert.match(html, /--portrait-image:url\(&quot;\/SchoolPrision\/characters\/lee-sohyeon\.png\?v=7513771c15fd&quot;\)/);
+  assert.match(html, /--portrait-image:url\(&quot;\/SchoolPrision\/characters\/lee-sohyeon\.webp\?v=681496cbd1c1&quot;\)/);
   assert.doesNotMatch(html, /--portrait-image:url\(&quot;\.\/characters\//);
 });
 
@@ -209,7 +209,7 @@ test("ships the supplied face-focused character portraits", async () => {
   ]);
   const html = await response.text();
   const portraits = [
-    "lee-sohyeon.png",
+    "lee-sohyeon.webp",
     "kim-doyoon.webp", "kang-taeho.webp", "park-seonghoon.webp", "seo-donghwan.webp",
     "seo-eunjeong.webp", "ahn-sujin.webp", "yoon-seoa.webp", "lee-dohyeon.png",
     "jin-dongwook.webp", "jin-heeju.webp", "choi-yuri.webp",
@@ -218,7 +218,9 @@ test("ships the supplied face-focused character portraits", async () => {
   assert.match(html, /roster-mark has-portrait/);
   assert.match(page, /--portrait-position/);
   assert.match(page, /--portrait-detail-position/);
-  assert.match(page, /lee-sohyeon\.png\?v=7513771c15fd", position: "50% 4%", detailPosition: "50% 0%", zoom: "250%"/);
+  assert.match(page, /lee-sohyeon\.webp\?v=681496cbd1c1", position: "50% 0%", detailPosition: "50% 0%", zoom: "250%", scale: "0\.8"/);
+  assert.match(html, /--portrait-scale:0\.8/);
+  assert.match(html, /--portrait-scale:1/);
   assert.match(page, /lee-dohyeon\.png", position: "50% 14%", detailPosition: "50% 0%"/);
   assert.match(page, /jin-dongwook\.webp", position: "50% 17%", detailPosition: "50% 18%"/);
   for (const portrait of portraits) {
@@ -267,9 +269,10 @@ test("keeps the responsive and reduced-motion safeguards", async () => {
   assert.match(css, /\.character-browser/);
   assert.match(css, /\.character-roster[^}]*grid-template-columns:\s*1fr/);
   assert.match(css, /grid-template-columns:\s*88px 1fr/);
-  assert.match(css, /auto clamp\(205%,calc\(var\(--portrait-zoom\) \* \.78\),285%\)/);
+  assert.match(css, /auto calc\(clamp\(205%,calc\(var\(--portrait-zoom\) \* \.78\),285%\) \* var\(--portrait-scale,1\)\)/);
   assert.match(css, /grid-template-columns:\s*240px 1fr/);
-  assert.match(css, /auto clamp\(175%,calc\(var\(--portrait-zoom\) \* \.62\),225%\)/);
+  assert.match(css, /auto calc\(clamp\(175%,calc\(var\(--portrait-zoom\) \* \.62\),225%\) \* var\(--portrait-scale,1\)\)/);
+  assert.equal((css.match(/auto calc\(clamp\(175%,calc\(var\(--portrait-zoom\) \* \.68\),235%\) \* var\(--portrait-scale,1\)\)/g) ?? []).length, 2);
   assert.match(css, /aspect-ratio:\s*1/);
   assert.match(css, /\.relationship-node > b[^}]*font-size:\s*18px/);
   assert.match(css, /\.relationship-records li p[^}]*font-size:\s*16px/);
