@@ -218,7 +218,7 @@ test("ships the supplied face-focused character portraits", async () => {
   assert.match(html, /roster-mark has-portrait/);
   assert.match(page, /--portrait-position/);
   assert.match(page, /--portrait-detail-position/);
-  assert.match(page, /lee-sohyeon\.png\?v=7513771c15fd", position: "50% 20%", detailPosition: "50% 14%", zoom: "320%"/);
+  assert.match(page, /lee-sohyeon\.png\?v=7513771c15fd", position: "50% 4%", detailPosition: "50% 0%", zoom: "250%"/);
   assert.match(page, /lee-dohyeon\.png", position: "50% 14%", detailPosition: "50% 0%"/);
   assert.match(page, /jin-dongwook\.webp", position: "50% 17%", detailPosition: "50% 18%"/);
   for (const portrait of portraits) {
